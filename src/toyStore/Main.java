@@ -1,15 +1,13 @@
 package toyStore;
 
-import toyStore.models.PrizeDrawingModel;
-import toyStore.presenters.PrizeDrawingPresenter;
-import toyStore.views.PrizeDrawingView;
+import java.util.List;
+
+import static toyStore.Sweepstakes.startGame;
+import static toyStore.Sweepstakes.giveAllToys;
 
 public class Main {
     public static void main(String[] args) {
-        PrizeDrawingModel model = new PrizeDrawingModel();
-        PrizeDrawingView view = new PrizeDrawingView();
-        PrizeDrawingPresenter presenter = new PrizeDrawingPresenter(model, view);
-        presenter.endlessGame();
-        presenter.giveOutPrizeFromWinningBasket();
+        List<Toy> toys = startGame();
+        giveAllToys(toys);
     }
 }
