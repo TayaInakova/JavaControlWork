@@ -41,4 +41,13 @@ public class Basket {
         this.container.remove(toy);
         return container;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder list = new StringBuilder();
+        for (Toy toy: container) {
+            list.append(toy.getName()).append("\n");
+        }
+        return ("Basket:\n" + list);
+    }
 }

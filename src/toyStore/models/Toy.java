@@ -50,6 +50,11 @@ public abstract class Toy {
 
     @Override
     public String toString() {
-        return name;
+        return "Toy{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", weight=" + weight +
+                ", percent=" + percent +
+                '}';
     }
 }

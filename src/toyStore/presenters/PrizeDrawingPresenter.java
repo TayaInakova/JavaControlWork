@@ -14,24 +14,46 @@ public class PrizeDrawingPresenter {
         this.winningBasket = new Basket();
     }
 
-    public void startTheDrawing() {
+    public boolean startTheDrawing() {
         view.startWords();
         if (model.flag()) {
             Toy toy = model.tryTheLuck(model.getToyList());
             view.showResultOfAttempt(toy);
             winningBasket.addToy(toy);
+            giveOutPrizeNow(toy);
+            return true;
         } else {
-            view.endWords();
-        }
-    }
-    
-    public void endlessGame() {
-        while (model.flag()) {
-            startTheDrawing();
+            return false;
         }
     }
 
-//    public void giveOutPrize() {
-//
-//    }
+    public void endlessGame() {
+        view.startEndlessGameWord();
+        boolean button = model.pressButton();
+        while (button) {
+            button = startTheDrawing();
+        }
+    }
+
+    public void giveOutPrizeNow(Toy toy) {
+        System.out.println("Желаете получить приз? Если да - нажмите \"*\"");
+        if (model.pressButton()) {
+            model.writeToFile(toy);
+            winningBasket.removeToy(toy);
+            view.showGiveOutPrize();
+        }
+    }
+
+    public void giveOutPrizeFromWinningBasket() {
+        if (!winningBasket.getContainer().isEmpty()) {
+            view.showBasketIsNoEmpty();
+            for (Toy nextToy : winningBasket.getContainer()) {
+                System.out.println(nextToy.getName());
+                giveOutPrizeNow(nextToy);
+            }
+        } else {
+            view.showBasketIsEmpty();
+        }
+        view.endWords();
+    }
 }
