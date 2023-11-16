@@ -1,4 +1,6 @@
-public class Robot extends Toy{
+package toyStore.models;
+
+public class Robot extends Toy {
     /**
      * Робот
      * @param name имя игрушки
@@ -11,6 +13,6 @@ public class Robot extends Toy{
     }
 
     public Robot() {
-        super("Robot", 152228, 200, 40);
+        super("Робот", 152228, 200, 20);
     }
 }

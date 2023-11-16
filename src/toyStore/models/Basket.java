@@ -1,3 +1,5 @@
+package toyStore.models;
+
 import java.util.ArrayList;
 
 /**
@@ -38,11 +40,5 @@ public class Basket {
     public ArrayList<Toy> removeToy(Toy toy) {
         this.container.remove(toy);
         return container;
-    }
-
-    @Override
-    public String toString() {
-        return "Basket{" + container +
-                '}';
     }
 }

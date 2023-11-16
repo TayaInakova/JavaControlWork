@@ -1,3 +1,5 @@
+package toyStore.models;
+
 public class SoftToy extends Toy {
     /**
      * Мягкая игрушка
@@ -11,6 +13,6 @@ public class SoftToy extends Toy {
     }
 
     public SoftToy() {
-        super("Bear", 164478, 150, 20);
+        super("Плюшевый мишка", 164478, 150, 40);
     }
 }

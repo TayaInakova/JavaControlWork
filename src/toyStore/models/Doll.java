@@ -1,3 +1,5 @@
+package toyStore.models;
+
 public class Doll extends Toy {
     /**
      * Кукла
@@ -11,6 +13,6 @@ public class Doll extends Toy {
     }
 
     public Doll() {
-        super("Barbie", 135889, 100, 30);
+        super("Кукла Маша", 135889, 100, 30);
     }
 }

@@ -1,3 +1,5 @@
+package toyStore.models;
+
 public abstract class Toy {
     /**
      * В принципе игрушка
@@ -48,7 +50,6 @@ public abstract class Toy {
 
     @Override
     public String toString() {
-        return "Toy{'" + name + '\'' +
-                ", id=" + id + '}';
+        return name;
     }
 }
